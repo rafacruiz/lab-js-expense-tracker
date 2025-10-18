@@ -65,6 +65,15 @@ class Budget {
     }
 
     getFormattedEntries() {
-
+        let result = []
+        
+        for (const entry of this.entries) {
+            if (entry.type === 'income') {
+                result.push(`${entry.date} | ${entry.description} | ${entry.amount} €`)
+            } else if (entry.type === 'expense') {
+                result.push(`${entry.date} | ${entry.description} | -${entry.amount} €`)
+            }
+        }
+        return result
     }
 }
